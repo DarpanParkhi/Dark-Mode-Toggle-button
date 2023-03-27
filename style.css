@@ -1,0 +1,53 @@
+body{
+    transition: 0.4s;
+}
+.input{
+    visibility: hidden;
+}
+
+.label{
+    position: absolute; /*bcoz we put label section inside the body in order to give width and height we need to have a asbolute positioning (if it is not working) */
+    width:80px;
+    height:40px;
+    background-color:lightgrey;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.circle{
+    width: 34px;
+    background-color: white;
+    height: 34px;
+    border-radius: 50%;
+    top: 3px; 
+    position: absolute; /*for woriking 'top: 3px' line we need to give position*/
+    left: 3px; /*same as above*/
+    animation: toggleOff 0.4s linear forwards;
+}
+
+.input:checked + .label{  /*if this input we have is checked, so when it checked we want change the color of the label*/
+    background-color:white; /*if something happened then changed the label to be as a background-color: salmon*/
+}
+
+.input:checked + .label .circle{
+    animation: toggleOn 0.4s linear forwards;
+    background-color:black
+}
+
+@keyframes toggleOn {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(40px);
+    }
+}
+
+@keyframes toggleOff {
+    0%{
+        transform: translateX(40px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
